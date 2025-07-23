@@ -105,7 +105,10 @@ function generateChart(entries) {
     { label: '🌆 18-23', hours: [18,19,20,21,22,23] }
   ].map(block => ({
     ...block,
-    count: times.filter(t => block.hours.includes(t.getHours())).length
+    count: times.filter(t => {
+      const istHour = Math.floor((t.getHours() + 5.5) % 24);
+      return block.hours.includes(istHour);
+    }).length
   }));
 
   const maxCount = Math.max(...blocks.map(b => b.count));
