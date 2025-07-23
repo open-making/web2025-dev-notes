@@ -1,0 +1,42 @@
+name: Update README with Dev Notes Index
+
+on:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [opened, edited]
+
+jobs:
+  update-readme:
+    # Only run if the issue title starts with "Day" (day-wise journal entries)
+    if: startsWith(github.event.issue.title, 'Day ')
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      issues: read
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Update README
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run update-readme
+        
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git diff --staged --quiet || git commit -m "🤖 Update README with latest dev notes index"
+          git push
