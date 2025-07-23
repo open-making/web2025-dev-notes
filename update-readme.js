@@ -78,13 +78,11 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 - Course Website: https://teaching.aman.bh/web2025
 - Facilitator: [@thedivtagguy](https://github.com/thedivtagguy)
 
----
 
 ## Entries
 
 ${entryList}
 
----
 
 ## Distribution of night owls
 
