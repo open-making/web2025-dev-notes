@@ -15,13 +15,13 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 
 ## Distribution of night owls
 
-Graphing the time when notes have been added.
+Graphing the time when notes have been added. ⚠️ Some night owls detected. More sleep please!
 
 ```
-🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 12 (46%)
-🌅 06-11 │▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░│  6 (23%)
-☀️ 12-17 │▓▓▓▓▓▓▓▓░░░░░░░░░░░░│  5 (19%)
-🌆 18-23 │▓▓▓▓▓░░░░░░░░░░░░░░░│  3 (12%)
+🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│  9 (35%)
+🌅 06-11 │▓▓▓▓▓▓▓░░░░░░░░░░░░░│  3 (12%)
+☀️ 12-17 │▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░│  5 (19%)
+🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│  9 (35%)
 ```
 📊 26 total comments • Peak: 00-05
 
@@ -46,4 +46,4 @@ Notes are positive, negative, or neutral?
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 23, 2025 at 06:03 PM</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 23, 2025 at 06:16 PM</span>

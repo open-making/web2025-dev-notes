@@ -17,24 +17,24 @@ if (!process.env.TOKEN) {
 
 async function updateReadme() {
   try {
-    const { data: issues } = await octokit.rest.issues.listForRepo({ 
-      owner: 'open-making', 
-      repo: 'web2025-dev-notes', 
-      state: 'all', 
-      per_page: 100 
+    const { data: issues } = await octokit.rest.issues.listForRepo({
+      owner: 'open-making',
+      repo: 'web2025-dev-notes',
+      state: 'all',
+      per_page: 100
     });
-    
+
     const dayEntries = await Promise.all(
       issues
         .filter(issue => /^Day \d+:/.test(issue.title))
         .sort((a, b) => parseInt(a.title.match(/\d+/)[0]) - parseInt(b.title.match(/\d+/)[0]))
         .map(async (issue) => {
-          const { data: comments } = await octokit.rest.issues.listComments({ 
-            owner: 'open-making', 
-            repo: 'web2025-dev-notes', 
-            issue_number: issue.number 
+          const { data: comments } = await octokit.rest.issues.listComments({
+            owner: 'open-making',
+            repo: 'web2025-dev-notes',
+            issue_number: issue.number
           });
-          
+
           const allText = comments.map(c => c.body).join(' ');
           return {
             day: parseInt(issue.title.match(/\d+/)[0]),
@@ -49,19 +49,19 @@ async function updateReadme() {
     );
 
     const content = generateReadme(dayEntries);
-    
+
     if (process.env.LOCAL_MODE === 'true') {
       require('fs').writeFileSync('README.md', content);
     } else {
       try {
-        const { data: file } = await octokit.rest.repos.getContent({ 
-          owner: 'open-making', 
-          repo: 'web2025-dev-notes', 
-          path: 'README.md' 
+        const { data: file } = await octokit.rest.repos.getContent({
+          owner: 'open-making',
+          repo: 'web2025-dev-notes',
+          path: 'README.md'
         });
         await octokit.rest.repos.createOrUpdateFileContents({
-          owner: 'open-making', 
-          repo: 'web2025-dev-notes', 
+          owner: 'open-making',
+          repo: 'web2025-dev-notes',
           path: 'README.md',
           message: '🤖 Update README with latest dev notes index',
           content: Buffer.from(content).toString('base64'),
@@ -70,8 +70,8 @@ async function updateReadme() {
       } catch (error) {
         if (error.status === 404) {
           await octokit.rest.repos.createOrUpdateFileContents({
-            owner: 'open-making', 
-            repo: 'web2025-dev-notes', 
+            owner: 'open-making',
+            repo: 'web2025-dev-notes',
             path: 'README.md',
             message: '🤖 Create README with dev notes index',
             content: Buffer.from(content).toString('base64')
@@ -88,7 +88,7 @@ async function updateReadme() {
 }
 
 function generateReadme(entries) {
-  const entryList = entries.map(e => 
+  const entryList = entries.map(e =>
     `- [Day ${e.day} (${e.createdAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}): ${e.title}](${e.url}) | ${e.commentCount} notes`
   ).join('\n');
 
@@ -108,9 +108,7 @@ ${entryList}
 
 ## Distribution of night owls
 
-Graphing the time when notes have been added.
-
-${generateNightOwlChart(entries)}
+Graphing the time when notes have been added. ${generateNightOwlChart(entries)}
 
 ## How are we feeling?
 
@@ -136,7 +134,11 @@ function generateNightOwlChart(entries) {
   ].map(block => ({
     ...block,
     count: times.filter(t => {
-      const istHour = Math.floor((t.getHours() + 5.5) % 24);
+      // Convert UTC to IST (UTC + 5:30)
+      const utcHour = t.getUTCHours();
+      const utcMinute = t.getUTCMinutes();
+      const istTotalMinutes = (utcHour * 60 + utcMinute + 330) % (24 * 60); // Add 5:30 hours
+      const istHour = Math.floor(istTotalMinutes / 60);
       return block.hours.includes(istHour);
     }).length
   }));
@@ -150,7 +152,20 @@ function generateNightOwlChart(entries) {
   }).join('\n');
 
   const peak = blocks.reduce((max, curr) => curr.count > max.count ? curr : max);
-  return `\`\`\`\n${chart}\n\`\`\`\n📊 ${times.length} total comments • Peak: ${peak.label.replace(/🌙|🌅|☀️|🌆/g, '').trim()}`;
+
+  // Generate sleep verdict based on late night activity
+  const lateNightCount = blocks[0].count; // 00-05 block
+  const lateNightPercentage = Math.round((lateNightCount / times.length) * 100);
+  let verdict;
+  if (lateNightPercentage > 40) {
+    verdict = "😴 Consider getting more sleep! Too many late night posts.";
+  } else if (lateNightPercentage > 20) {
+    verdict = "⚠️ Some night owls detected. More sleep please!";
+  } else {
+    verdict = "✅ Good sleep scenes, not many late night posts!";
+  }
+
+  return `${verdict}\n\n\`\`\`\n${chart}\n\`\`\`\n📊 ${times.length} total comments • Peak: ${peak.label.replace(/🌙|🌅|☀️|🌆/g, '').trim()}`;
 }
 
 function generateSentimentChart(entries) {
