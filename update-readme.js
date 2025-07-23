@@ -6,11 +6,11 @@
 require('dotenv').config();
 const { Octokit } = require('@octokit/rest');
 
-const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+const octokit = new Octokit({ auth: process.env.TOKEN });
 const [owner, repo] = ['open-making', 'web2025-dev-notes'];
 
-if (!process.env.GITHUB_TOKEN) {
-  console.error('❌ GITHUB_TOKEN environment variable is required');
+if (!process.env.TOKEN) {
+  console.error('❌ TOKEN environment variable is required');
   process.exit(1);
 }
 
