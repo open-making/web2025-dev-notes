@@ -5,9 +5,12 @@
  */
 require('dotenv').config();
 const { Octokit } = require('@octokit/rest');
+const Sentiment = require('sentiment');
+const plot = require('simple-ascii-chart').default;
 
 const octokit = new Octokit({ auth: process.env.TOKEN });
 const [owner, repo] = ['open-making', 'web2025-dev-notes'];
+const sentiment = new Sentiment();
 
 if (!process.env.TOKEN) {
   console.error('❌ TOKEN environment variable is required');
@@ -24,13 +27,19 @@ async function updateReadme() {
         .sort((a, b) => parseInt(a.title.match(/\d+/)[0]) - parseInt(b.title.match(/\d+/)[0]))
         .map(async (issue) => {
           const { data: comments } = await octokit.rest.issues.listComments({ owner, repo, issue_number: issue.number });
+
+          // Calculate sentiment for all comments
+          const allText = comments.map(c => c.body).join(' ');
+          const sentimentScore = comments.length > 0 ? sentiment.analyze(allText).comparative : 0;
+
           return {
             day: parseInt(issue.title.match(/\d+/)[0]),
             title: issue.title.replace(/^Day \d+:\s*/, ''),
             url: issue.html_url,
             commentCount: comments.length,
             createdAt: new Date(issue.created_at),
-            commentTimes: comments.map(c => new Date(c.created_at))
+            commentTimes: comments.map(c => new Date(c.created_at)),
+            sentiment: sentimentScore
           };
         })
     );
@@ -90,7 +99,15 @@ Graphing the time when notes have been added.
 
 ${generateChart(entries)}
 
-_This README is automatically updated when new comments are added to day-wise journal entries._
+## How are we feeling?
+
+Notes are positive, negative, or neutral?
+
+${generateSentimentChart(entries)}
+
+---
+
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on ${new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} at ${new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}</span>
 `;
 }
 
@@ -121,6 +138,39 @@ function generateChart(entries) {
 
   const peak = blocks.reduce((max, curr) => curr.count > max.count ? curr : max);
   return `\`\`\`\n${chart}\n\`\`\`\n📊 ${times.length} total comments • Peak: ${peak.label.replace(/🌙|🌅|☀️|🌆/g, '').trim()}`;
+}
+
+function generateSentimentChart(entries) {
+  // Only include days with comments for sentiment analysis
+  const entriesWithComments = entries.filter(entry => entry.commentCount > 0);
+
+  if (!entriesWithComments.length) return '```\n📊 No sentiment data yet! Add some comments first.\n```';
+
+  // Prepare data for simple-ascii-chart
+  const chartData = entriesWithComments.map(entry => ({
+    day: `Day ${entry.day}`,
+    sentiment: Math.round(entry.sentiment * 100) / 100 // Round to 2 decimal places
+  }));
+
+  // Generate ASCII line chart with zero-centered axis
+  const plotData = chartData.map((d, index) => [index + 1, d.sentiment]);
+  const asciiChart = plot(plotData, {
+    width: 50,
+    height: 10,
+    axisCenter: [1, 0],
+    hideYAxis: true,
+    xLabel: 'Day',
+    formatter: (x) => typeof x === 'number' ? x.toFixed(0) : x
+  });
+
+  // Calculate summary stats using only entries with comments
+  const avgSentiment = entriesWithComments.reduce((sum, e) => sum + e.sentiment, 0) / entriesWithComments.length;
+  const mostPositive = entriesWithComments.reduce((max, e) => e.sentiment > max.sentiment ? e : max);
+  const mostNegative = entriesWithComments.reduce((min, e) => e.sentiment < min.sentiment ? e : min);
+
+  const moodEmoji = avgSentiment > 0.1 ? '😊' : avgSentiment < -0.1 ? '😕' : '😐';
+
+  return `\`\`\`\n😊 Positive\n${asciiChart}\n😕 Negative\n\`\`\`\n`;
 }
 
 updateReadme();
