@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
  * Written with Claude 4.5 Sonnet
- *
  */
 require('dotenv').config();
 const { Octokit } = require('@octokit/rest');
@@ -9,7 +8,6 @@ const Sentiment = require('sentiment');
 const plot = require('simple-ascii-chart').default;
 
 const octokit = new Octokit({ auth: process.env.TOKEN });
-const [owner, repo] = ['open-making', 'web2025-dev-notes'];
 const sentiment = new Sentiment();
 
 if (!process.env.TOKEN) {
@@ -19,19 +17,25 @@ if (!process.env.TOKEN) {
 
 async function updateReadme() {
   try {
-    const { data: issues } = await octokit.rest.issues.listForRepo({ owner, repo, state: 'all', per_page: 100 });
-
+    const { data: issues } = await octokit.rest.issues.listForRepo({ 
+      owner: 'open-making', 
+      repo: 'web2025-dev-notes', 
+      state: 'all', 
+      per_page: 100 
+    });
+    
     const dayEntries = await Promise.all(
       issues
         .filter(issue => /^Day \d+:/.test(issue.title))
         .sort((a, b) => parseInt(a.title.match(/\d+/)[0]) - parseInt(b.title.match(/\d+/)[0]))
         .map(async (issue) => {
-          const { data: comments } = await octokit.rest.issues.listComments({ owner, repo, issue_number: issue.number });
-
-          // Calculate sentiment for all comments
+          const { data: comments } = await octokit.rest.issues.listComments({ 
+            owner: 'open-making', 
+            repo: 'web2025-dev-notes', 
+            issue_number: issue.number 
+          });
+          
           const allText = comments.map(c => c.body).join(' ');
-          const sentimentScore = comments.length > 0 ? sentiment.analyze(allText).comparative : 0;
-
           return {
             day: parseInt(issue.title.match(/\d+/)[0]),
             title: issue.title.replace(/^Day \d+:\s*/, ''),
@@ -39,20 +43,26 @@ async function updateReadme() {
             commentCount: comments.length,
             createdAt: new Date(issue.created_at),
             commentTimes: comments.map(c => new Date(c.created_at)),
-            sentiment: sentimentScore
+            sentiment: comments.length > 0 ? sentiment.analyze(allText).comparative : 0
           };
         })
     );
 
     const content = generateReadme(dayEntries);
-
+    
     if (process.env.LOCAL_MODE === 'true') {
       require('fs').writeFileSync('README.md', content);
     } else {
       try {
-        const { data: file } = await octokit.rest.repos.getContent({ owner, repo, path: 'README.md' });
+        const { data: file } = await octokit.rest.repos.getContent({ 
+          owner: 'open-making', 
+          repo: 'web2025-dev-notes', 
+          path: 'README.md' 
+        });
         await octokit.rest.repos.createOrUpdateFileContents({
-          owner, repo, path: 'README.md',
+          owner: 'open-making', 
+          repo: 'web2025-dev-notes', 
+          path: 'README.md',
           message: '🤖 Update README with latest dev notes index',
           content: Buffer.from(content).toString('base64'),
           sha: file.sha
@@ -60,7 +70,9 @@ async function updateReadme() {
       } catch (error) {
         if (error.status === 404) {
           await octokit.rest.repos.createOrUpdateFileContents({
-            owner, repo, path: 'README.md',
+            owner: 'open-making', 
+            repo: 'web2025-dev-notes', 
+            path: 'README.md',
             message: '🤖 Create README with dev notes index',
             content: Buffer.from(content).toString('base64')
           });
@@ -76,10 +88,11 @@ async function updateReadme() {
 }
 
 function generateReadme(entries) {
-  const entryList = entries.map(e =>
+  const entryList = entries.map(e => 
     `- [Day ${e.day} (${e.createdAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}): ${e.title}](${e.url}) | ${e.commentCount} notes`
   ).join('\n');
 
+  const now = new Date();
   return `# Web 2025 Dev Notes
 
 This repo documents our learning journey for the [web2025](https://teaching.aman.bh/web2025) course taught at DA-IICT.
@@ -97,7 +110,7 @@ ${entryList}
 
 Graphing the time when notes have been added.
 
-${generateChart(entries)}
+${generateNightOwlChart(entries)}
 
 ## How are we feeling?
 
@@ -107,11 +120,11 @@ ${generateSentimentChart(entries)}
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on ${new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} at ${new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on ${now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} at ${now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}</span>
 `;
 }
 
-function generateChart(entries) {
+function generateNightOwlChart(entries) {
   const times = entries.flatMap(e => e.commentTimes);
   if (!times.length) return '```\n🦉 No night owls yet! Be the first to post.\n```';
 
@@ -141,19 +154,10 @@ function generateChart(entries) {
 }
 
 function generateSentimentChart(entries) {
-  // Only include days with comments for sentiment analysis
-  const entriesWithComments = entries.filter(entry => entry.commentCount > 0);
-
+  const entriesWithComments = entries.filter(e => e.commentCount > 0);
   if (!entriesWithComments.length) return '```\n📊 No sentiment data yet! Add some comments first.\n```';
 
-  // Prepare data for simple-ascii-chart
-  const chartData = entriesWithComments.map(entry => ({
-    day: `Day ${entry.day}`,
-    sentiment: Math.round(entry.sentiment * 100) / 100 // Round to 2 decimal places
-  }));
-
-  // Generate ASCII line chart with zero-centered axis
-  const plotData = chartData.map((d, index) => [index + 1, d.sentiment]);
+  const plotData = entriesWithComments.map((entry, index) => [index + 1, entry.sentiment]);
   const asciiChart = plot(plotData, {
     width: 50,
     height: 10,
@@ -162,13 +166,6 @@ function generateSentimentChart(entries) {
     xLabel: 'Day',
     formatter: (x) => typeof x === 'number' ? x.toFixed(0) : x
   });
-
-  // Calculate summary stats using only entries with comments
-  const avgSentiment = entriesWithComments.reduce((sum, e) => sum + e.sentiment, 0) / entriesWithComments.length;
-  const mostPositive = entriesWithComments.reduce((max, e) => e.sentiment > max.sentiment ? e : max);
-  const mostNegative = entriesWithComments.reduce((min, e) => e.sentiment < min.sentiment ? e : min);
-
-  const moodEmoji = avgSentiment > 0.1 ? '😊' : avgSentiment < -0.1 ? '😕' : '😐';
 
   return `\`\`\`\n😊 Positive\n${asciiChart}\n😕 Negative\n\`\`\`\n`;
 }
