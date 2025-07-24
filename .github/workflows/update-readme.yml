@@ -12,7 +12,6 @@ jobs:
     # Only run if the issue title starts with "Day" (day-wise journal entries) or manually triggered
     if: github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, 'Day ')
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
       issues: read
@@ -25,6 +24,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Python dependencies
+        run: pip install textblob
 
       - name: Install dependencies
         run: npm install

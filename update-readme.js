@@ -4,11 +4,10 @@
  */
 require('dotenv').config();
 const { Octokit } = require('@octokit/rest');
-const Sentiment = require('sentiment');
 const plot = require('simple-ascii-chart').default;
+const { execSync } = require('child_process');
 
 const octokit = new Octokit({ auth: process.env.TOKEN });
-const sentiment = new Sentiment();
 
 if (!process.env.TOKEN) {
   console.error('❌ TOKEN environment variable is required');
@@ -35,7 +34,18 @@ async function updateReadme() {
             issue_number: issue.number
           });
 
-          const allText = comments.map(c => c.body).join(' ');
+          const allText = comments.map(c => c.body).join(' ').replace(/[`'"\\$]/g, ' ');
+          let sentimentScore = 0;
+          
+          if (comments.length > 0) {
+            try {
+              sentimentScore = parseFloat(execSync('python3 sentiment.py', {input: allText, encoding: 'utf8'}).trim());
+              console.log(`\n📊 Day ${parseInt(issue.title.match(/\d+/)[0])} sentiment: ${sentimentScore.toFixed(3)}`);
+            } catch (error) {
+              console.log(`\n❌ Day ${parseInt(issue.title.match(/\d+/)[0])} sentiment analysis failed`);
+            }
+          }
+          
           return {
             day: parseInt(issue.title.match(/\d+/)[0]),
             title: issue.title.replace(/^Day \d+:\s*/, ''),
@@ -43,7 +53,7 @@ async function updateReadme() {
             commentCount: comments.length,
             createdAt: new Date(issue.created_at),
             commentTimes: comments.map(c => new Date(c.created_at)),
-            sentiment: comments.length > 0 ? sentiment.analyze(allText).comparative : 0
+            sentiment: sentimentScore
           };
         })
     );
@@ -178,7 +188,7 @@ function generateSentimentChart(entries) {
   const plotData = entriesWithComments.map((entry, index) => [index + 1, entry.sentiment]);
   const asciiChart = plot(plotData, {
     width: 50,
-    height: 10,
+    height: 8,
     axisCenter: [1, 0],
     hideYAxis: true,
     xLabel: 'Day',

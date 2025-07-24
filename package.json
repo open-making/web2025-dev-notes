@@ -9,7 +9,6 @@
   "dependencies": {
     "@octokit/rest": "^20.0.2",
     "dotenv": "^16.3.1",
-    "sentiment": "^5.0.2",
     "simple-ascii-chart": "^5.3.0"
   }
 }
