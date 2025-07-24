@@ -10,7 +10,7 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 
 - [Day 1 (Jul 21): The Small Web](https://github.com/open-making/web2025-dev-notes/issues/1) | 15 notes
 - [Day 2 (Jul 22): HTML, CSS, and You](https://github.com/open-making/web2025-dev-notes/issues/3) | 12 notes
-- [Day 3 (Jul 23): Seeing and Searching](https://github.com/open-making/web2025-dev-notes/issues/4) | 14 notes
+- [Day 3 (Jul 23): Seeing and Searching](https://github.com/open-making/web2025-dev-notes/issues/4) | 15 notes
 
 
 ## Distribution of night owls
@@ -18,12 +18,12 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 Graphing the time when notes have been added. 😴 Consider getting more sleep! Too many late night posts.
 
 ```
-🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 19 (46%)
-🌅 06-11 │▓▓▓▓▓▓░░░░░░░░░░░░░░│  6 (15%)
+🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 19 (45%)
+🌅 06-11 │▓▓▓▓▓▓▓░░░░░░░░░░░░░│  7 (17%)
 ☀️ 12-17 │▓▓▓▓▓░░░░░░░░░░░░░░░│  5 (12%)
-🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░│ 11 (27%)
+🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░│ 11 (26%)
 ```
-📊 41 total comments • Peak: 00-05
+📊 42 total comments • Peak: 00-05
 
 ## How are we feeling?
 
@@ -33,7 +33,8 @@ Notes are positive, negative, or neutral?
 😊 Positive
 
                          ┏━━━━━━━━━━━━━━━━━━━━━━━┓  
- ━━━━━━━━━━━━━━━━━━━━━━━━┛                       ┗━ 
+ ━━━━━━━━━━━━━━━━━━━━━━━━┛                       ┃  
+                                                 ┗━ 
 ┬────────────────────────┬───────────────────────┬─▶
 1                        2                       3  
                          Day                         
@@ -44,4 +45,4 @@ Notes are positive, negative, or neutral?
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 24, 2025 at 09:28 AM IST</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 24, 2025 at 11:18 AM IST</span>
