@@ -1,7 +1,7 @@
 {
   "name": "web2025-dev-notes-updater",
   "version": "1.0.0",
-  "description": "Script to update README with dev notes index",
+  "description": "Script to update README",
   "main": "update-readme.js",
   "scripts": {
     "update-readme": "node update-readme.js"

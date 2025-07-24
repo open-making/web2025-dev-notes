@@ -36,7 +36,7 @@ async function updateReadme() {
 
           const allText = comments.map(c => c.body).join(' ').replace(/[`'"\\$]/g, ' ');
           let sentimentScore = 0;
-          
+
           if (comments.length > 0) {
             try {
               sentimentScore = parseFloat(execSync('python3 sentiment.py', {input: allText, encoding: 'utf8'}).trim());
@@ -45,7 +45,7 @@ async function updateReadme() {
               console.log(`\n❌ Day ${parseInt(issue.title.match(/\d+/)[0])} sentiment analysis failed`);
             }
           }
-          
+
           return {
             day: parseInt(issue.title.match(/\d+/)[0]),
             title: issue.title.replace(/^Day \d+:\s*/, ''),
@@ -73,7 +73,7 @@ async function updateReadme() {
           owner: 'open-making',
           repo: 'web2025-dev-notes',
           path: 'README.md',
-          message: '🤖 Update README with latest dev notes index',
+          message: '🤖 Update README with latest data',
           content: Buffer.from(content).toString('base64'),
           sha: file.sha
         });
@@ -83,7 +83,7 @@ async function updateReadme() {
             owner: 'open-making',
             repo: 'web2025-dev-notes',
             path: 'README.md',
-            message: '🤖 Create README with dev notes index',
+            message: '🤖 Create README with data',
             content: Buffer.from(content).toString('base64')
           });
         } else throw error;
