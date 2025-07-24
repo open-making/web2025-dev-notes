@@ -11,6 +11,7 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 - [Day 1 (Jul 21): The Small Web](https://github.com/open-making/web2025-dev-notes/issues/1) | 15 notes
 - [Day 2 (Jul 22): HTML, CSS, and You](https://github.com/open-making/web2025-dev-notes/issues/3) | 12 notes
 - [Day 3 (Jul 23): Seeing and Searching](https://github.com/open-making/web2025-dev-notes/issues/4) | 15 notes
+- [Day 4 (Jul 24): Typesetting a page](https://github.com/open-making/web2025-dev-notes/issues/5) | 0 notes
 
 
 ## Distribution of night owls
@@ -45,4 +46,4 @@ Notes are positive, negative, or neutral?
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 24, 2025 at 11:18 AM IST</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 24, 2025 at 02:55 PM IST</span>
