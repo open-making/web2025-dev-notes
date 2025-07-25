@@ -11,7 +11,7 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 - [Day 1 (Jul 21): The Small Web](https://github.com/open-making/web2025-dev-notes/issues/1) | 15 notes
 - [Day 2 (Jul 22): HTML, CSS, and You](https://github.com/open-making/web2025-dev-notes/issues/3) | 12 notes
 - [Day 3 (Jul 23): Seeing and Searching](https://github.com/open-making/web2025-dev-notes/issues/4) | 16 notes
-- [Day 4 (Jul 24): Typesetting a page](https://github.com/open-making/web2025-dev-notes/issues/5) | 10 notes
+- [Day 4 (Jul 24): Typesetting a page](https://github.com/open-making/web2025-dev-notes/issues/5) | 11 notes
 
 
 ## Distribution of night owls
@@ -20,11 +20,11 @@ Graphing the time when notes have been added. 😴 Consider getting more sleep! 
 
 ```
 🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 23 (43%)
-🌅 06-11 │▓▓▓▓▓▓▓░░░░░░░░░░░░░│  8 (15%)
+🌅 06-11 │▓▓▓▓▓▓▓▓░░░░░░░░░░░░│  9 (17%)
 ☀️ 12-17 │▓▓▓▓░░░░░░░░░░░░░░░░│  5 (9%)
-🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░│ 17 (32%)
+🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░│ 17 (31%)
 ```
-📊 53 total comments • Peak: 00-05
+📊 54 total comments • Peak: 00-05
 
 ## How are we feeling?
 
@@ -46,4 +46,4 @@ Notes are positive, negative, or neutral?
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 25, 2025 at 08:36 AM IST</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 25, 2025 at 09:35 AM IST</span>
