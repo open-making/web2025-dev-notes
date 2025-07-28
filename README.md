@@ -12,7 +12,7 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 - [Day 2 (Jul 22): HTML, CSS, and You](https://github.com/open-making/web2025-dev-notes/issues/3) | 12 notes
 - [Day 3 (Jul 23): Seeing and Searching](https://github.com/open-making/web2025-dev-notes/issues/4) | 16 notes
 - [Day 4 (Jul 24): Typesetting a page](https://github.com/open-making/web2025-dev-notes/issues/5) | 13 notes
-- [Day 6 (Jul 28): Making Grids](https://github.com/open-making/web2025-dev-notes/issues/6) | 3 notes
+- [Day 6 (Jul 28): Making Grids](https://github.com/open-making/web2025-dev-notes/issues/6) | 4 notes
 
 
 ## Distribution of night owls
@@ -20,12 +20,12 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 Graphing the time when notes have been added. ⚠️ Some night owls detected. More sleep please!
 
 ```
-🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 23 (39%)
-🌅 06-11 │▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░│ 11 (19%)
+🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 23 (38%)
+🌅 06-11 │▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░│ 11 (18%)
 ☀️ 12-17 │▓▓▓▓░░░░░░░░░░░░░░░░│  5 (8%)
-🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░│ 20 (34%)
+🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░│ 21 (35%)
 ```
-📊 59 total comments • Peak: 00-05
+📊 60 total comments • Peak: 00-05
 
 ## How are we feeling?
 
@@ -49,4 +49,4 @@ Notes are positive, negative, or neutral?
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 28, 2025 at 10:39 PM IST</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 28, 2025 at 11:39 PM IST</span>
