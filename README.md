@@ -15,6 +15,7 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 - [Day 6 (Jul 28): Making Grids](https://github.com/open-making/web2025-dev-notes/issues/6) | 10 notes
 - [Day 7 (Jul 29): The Indie Web](https://github.com/open-making/web2025-dev-notes/issues/7) | 16 notes
 - [Day 8 (Jul 30): Visual Hierarchies](https://github.com/open-making/web2025-dev-notes/issues/8) | 10 notes
+- [Day 9 (Jul 31): Thinking in Frameworks](https://github.com/open-making/web2025-dev-notes/issues/9) | 0 notes
 
 
 ## Distribution of night owls
@@ -51,4 +52,4 @@ Notes are positive, negative, or neutral?
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 31, 2025 at 08:50 AM IST</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 31, 2025 at 06:05 PM IST</span>
