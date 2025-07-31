@@ -15,7 +15,7 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 - [Day 6 (Jul 28): Making Grids](https://github.com/open-making/web2025-dev-notes/issues/6) | 10 notes
 - [Day 7 (Jul 29): The Indie Web](https://github.com/open-making/web2025-dev-notes/issues/7) | 16 notes
 - [Day 8 (Jul 30): Visual Hierarchies](https://github.com/open-making/web2025-dev-notes/issues/8) | 12 notes
-- [Day 9 (Jul 31): Thinking in Frameworks](https://github.com/open-making/web2025-dev-notes/issues/9) | 12 notes
+- [Day 9 (Jul 31): Thinking in Frameworks](https://github.com/open-making/web2025-dev-notes/issues/9) | 14 notes
 
 
 ## Distribution of night owls
@@ -23,12 +23,12 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 Graphing the time when notes have been added. 😴 Consider getting more sleep! Too many late night posts.
 
 ```
-🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 43 (41%)
+🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 45 (42%)
 🌅 06-11 │▓▓▓▓▓▓▓░░░░░░░░░░░░░│ 15 (14%)
 ☀️ 12-17 │▓▓░░░░░░░░░░░░░░░░░░│  5 (5%)
-🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 43 (41%)
+🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░│ 43 (40%)
 ```
-📊 106 total comments • Peak: 00-05
+📊 108 total comments • Peak: 00-05
 
 ## How are we feeling?
 
@@ -52,4 +52,4 @@ Notes are positive, negative, or neutral?
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Aug 1, 2025 at 02:44 AM IST</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Aug 1, 2025 at 02:46 AM IST</span>
