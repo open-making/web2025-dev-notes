@@ -15,7 +15,7 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 - [Day 6 (Jul 28): Making Grids](https://github.com/open-making/web2025-dev-notes/issues/6) | 10 notes
 - [Day 7 (Jul 29): The Indie Web](https://github.com/open-making/web2025-dev-notes/issues/7) | 16 notes
 - [Day 8 (Jul 30): Visual Hierarchies](https://github.com/open-making/web2025-dev-notes/issues/8) | 10 notes
-- [Day 9 (Jul 31): Thinking in Frameworks](https://github.com/open-making/web2025-dev-notes/issues/9) | 0 notes
+- [Day 9 (Jul 31): Thinking in Frameworks](https://github.com/open-making/web2025-dev-notes/issues/9) | 1 notes
 
 
 ## Distribution of night owls
@@ -23,12 +23,12 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 Graphing the time when notes have been added. ⚠️ Some night owls detected. More sleep please!
 
 ```
-🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░│ 34 (37%)
+🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░│ 34 (37%)
 🌅 06-11 │▓▓▓▓▓▓▓▓░░░░░░░░░░░░│ 15 (16%)
 ☀️ 12-17 │▓▓▓░░░░░░░░░░░░░░░░░│  5 (5%)
-🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 38 (41%)
+🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 39 (42%)
 ```
-📊 92 total comments • Peak: 18-23
+📊 93 total comments • Peak: 18-23
 
 ## How are we feeling?
 
@@ -37,13 +37,14 @@ Notes are positive, negative, or neutral?
 ```
 😊 Positive
 
-        ┏━━━━━━━┓        ┏━━━━━━━┓                  
- ━━━━━━━┛       ┃        ┃       ┃                  
-                ┗━━━━━━━━┛       ┃       ┏━━━━━━━┓  
-                                 ┃       ┃       ┃  
-                                 ┗━━━━━━━┛       ┗━ 
-┬───────┬───────┬────────┬───────┬───────┬───────┬─▶
-1       2       3        4       5       6       7  
+                                                 ┏━ 
+                                                 ┃  
+       ┏━━━━━━┓      ┏━━━━━━┓                    ┃  
+ ━━━━━━┛      ┗━━━━━━┛      ┃      ┏━━━━━━┓      ┃  
+                            ┃      ┃      ┃      ┃  
+                            ┗━━━━━━┛      ┗━━━━━━┛  
+┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬─▶
+1      2      3      4      5      6      7      8  
                          Day                         
 
 😕 Negative
@@ -52,4 +53,4 @@ Notes are positive, negative, or neutral?
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 31, 2025 at 06:05 PM IST</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 31, 2025 at 09:06 PM IST</span>
