@@ -37,7 +37,7 @@ async function updateReadme() {
           const allText = comments.map(c => c.body).join(' ').replace(/[`'"\\$]/g, ' ');
           let sentimentScore = 0;
 
-          if (comments.length > 0) {
+          if (comments.length > 0 && allText.trim().length > 50) {
             try {
               sentimentScore = parseFloat(execSync('python3 sentiment.py', {input: allText, encoding: 'utf8'}).trim());
               console.log(`\n📊 Day ${parseInt(issue.title.match(/\d+/)[0])} sentiment: ${sentimentScore.toFixed(3)}`);
@@ -128,7 +128,6 @@ Graphing the time when notes have been added. ${generateNightOwlChart(entries)}
 Notes are positive, negative, or neutral?
 
 ${generateSentimentChart(entries)}
-
 ---
 
 <span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on ${istTime.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} at ${istTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })} IST</span>
@@ -185,10 +184,61 @@ function generateSentimentChart(entries) {
   const entriesWithComments = entries.filter(e => e.commentCount > 0);
   if (!entriesWithComments.length) return '```\n📊 No sentiment data yet! Add some comments first.\n```';
 
-  const plotData = entriesWithComments.map((entry, index) => [index + 1, entry.sentiment]);
+  // Create a map of day -> sentiment (only for days with comments)
+  const sentimentMap = new Map();
+  entriesWithComments.forEach(entry => {
+    sentimentMap.set(entry.day, entry.sentiment);
+  });
+
+  // Find the complete range - from Day 1 to the highest existing day
+  const existingDayNumbers = entries.map(e => e.day).sort((a, b) => a - b);
+  const minDay = 1; // Always start from Day 1
+  const maxDay = existingDayNumbers[existingDayNumbers.length - 1];
+
+  // Create COMPLETE plot data - no gaps allowed!
+  // We need sequential data points for the ASCII chart to draw continuous lines
+  const plotData = [];
+
+  // First, let's create an array of all sentiment values (with interpolation)
+  const allSentiments = [];
+
+  for (let day = minDay; day <= maxDay; day++) {
+    if (sentimentMap.has(day)) {
+      // We have sentiment data for this day
+      allSentiments.push(sentimentMap.get(day));
+    } else {
+      // This day either has no issue, or has no comments - interpolate
+      const prevDay = findPreviousDataPoint(sentimentMap, day);
+      const nextDay = findNextDataPoint(sentimentMap, day);
+
+      if (prevDay !== null && nextDay !== null) {
+        // Linear interpolation between two known points
+        const prevSentiment = sentimentMap.get(prevDay);
+        const nextSentiment = sentimentMap.get(nextDay);
+        const ratio = (day - prevDay) / (nextDay - prevDay);
+        const interpolated = prevSentiment + ratio * (nextSentiment - prevSentiment);
+        allSentiments.push(interpolated);
+      } else if (prevDay !== null) {
+        // Use previous value (extend forward)
+        allSentiments.push(sentimentMap.get(prevDay));
+      } else if (nextDay !== null) {
+        // Use next value (extend backward)
+        allSentiments.push(sentimentMap.get(nextDay));
+      } else {
+        // No data points available, use neutral
+        allSentiments.push(0);
+      }
+    }
+  }
+
+  // Now create sequential plot data (1,2,3,4,5...) so chart draws continuous line
+  for (let i = 0; i < allSentiments.length; i++) {
+    plotData.push([i + 1, allSentiments[i]]);
+  }
+
   const asciiChart = plot(plotData, {
-    width: 50,
-    height: 8,
+    width: 60,
+    height: 10,
     axisCenter: [1, 0],
     hideYAxis: true,
     xLabel: 'Day',
@@ -196,6 +246,20 @@ function generateSentimentChart(entries) {
   });
 
   return `\`\`\`\n😊 Positive\n${asciiChart}\n😕 Negative\n\`\`\`\n`;
+}
+
+function findPreviousDataPoint(sentimentMap, day) {
+  for (let d = day - 1; d >= 1; d--) {
+    if (sentimentMap.has(d)) return d;
+  }
+  return null;
+}
+
+function findNextDataPoint(sentimentMap, day) {
+  for (let d = day + 1; d <= 20; d++) { // Assume max 20 days
+    if (sentimentMap.has(d)) return d;
+  }
+  return null;
 }
 
 updateReadme();

@@ -9,8 +9,14 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 ## Entries
 
 - [Day 1 (Jul 21): The Small Web](https://github.com/open-making/web2025-dev-notes/issues/1) | 15 notes
-- [Day 2 (Jul 22): HTML, CSS, and You](https://github.com/open-making/web2025-dev-notes/issues/3) | 11 notes
-- [Day 3 (Jul 23): Seeing and Searching](https://github.com/open-making/web2025-dev-notes/issues/4) | 13 notes
+- [Day 2 (Jul 22): HTML, CSS, and You](https://github.com/open-making/web2025-dev-notes/issues/3) | 12 notes
+- [Day 3 (Jul 23): Seeing and Searching](https://github.com/open-making/web2025-dev-notes/issues/4) | 16 notes
+- [Day 4 (Jul 24): Typesetting a page](https://github.com/open-making/web2025-dev-notes/issues/5) | 13 notes
+- [Day 6 (Jul 28): Making Grids](https://github.com/open-making/web2025-dev-notes/issues/6) | 10 notes
+- [Day 7 (Jul 29): The Indie Web](https://github.com/open-making/web2025-dev-notes/issues/7) | 16 notes
+- [Day 8 (Jul 30): Visual Hierarchies](https://github.com/open-making/web2025-dev-notes/issues/8) | 12 notes
+- [Day 9 (Jul 31): Thinking in Frameworks](https://github.com/open-making/web2025-dev-notes/issues/9) | 15 notes
+- [Day 11 (Aug 4): [Project Week] Getting started](https://github.com/open-making/web2025-dev-notes/issues/11) | 0 notes
 
 
 ## Distribution of night owls
@@ -18,12 +24,12 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 Graphing the time when notes have been added. 😴 Consider getting more sleep! Too many late night posts.
 
 ```
-🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 19 (49%)
-🌅 06-11 │▓▓▓▓░░░░░░░░░░░░░░░░│  4 (10%)
-☀️ 12-17 │▓▓▓▓▓░░░░░░░░░░░░░░░│  5 (13%)
-🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░│ 11 (28%)
+🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 46 (42%)
+🌅 06-11 │▓▓▓▓▓▓▓░░░░░░░░░░░░░│ 15 (14%)
+☀️ 12-17 │▓▓░░░░░░░░░░░░░░░░░░│  5 (5%)
+🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░│ 43 (39%)
 ```
-📊 39 total comments • Peak: 00-05
+📊 109 total comments • Peak: 00-05
 
 ## How are we feeling?
 
@@ -32,16 +38,22 @@ Notes are positive, negative, or neutral?
 ```
 😊 Positive
 
-                         ┏━━━━━━━━━━━━━━━━━━━━━━━┓  
- ━━━━━━━━━━━━━━━━━━━━━━━━┛                       ┗━ 
-┬────────────────────────┬───────────────────────┬─▶
-1                        2                       3  
-                         Day                         
+      ┏━━━━━┓                                                 
+      ┃     ┃                                                 
+      ┃     ┗━━━━━┓                                           
+      ┃           ┃                                           
+      ┃           ┗━━━━━┓                      ┏━━━━━━━━━━━━━ 
+      ┃                 ┃          ┏━━━━━━━━━━━┛              
+      ┃                 ┗━━━━━┓    ┃                          
+ ━━━━━┛                       ┃    ┃                          
+                              ┗━━━━┛                          
+┬─────┬─────┬─────┬─────┬─────┬────┬─────┬─────┬─────┬─────┬─▶
+1     2     3     4     5     6    7     8     9    10    11  
+                              Day                              
 
 😕 Negative
 ```
 
-
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Jul 24, 2025 at 02:02 PM IST</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Aug 5, 2025 at 12:25 AM IST</span>
