@@ -98,9 +98,11 @@ async function updateReadme() {
 }
 
 function generateReadme(entries) {
-  const entryList = entries.map(e =>
-    `- [Day ${e.day} (${e.createdAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}): ${e.title}](${e.url}) | ${e.commentCount} notes`
-  ).join('\n');
+  const entryList = `| Day | Title | Notes |
+|-----|-------|-------|
+${entries.map(e => {
+    return `| Day ${e.day} (${e.createdAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}) | [${e.title}](${e.url}) | ${e.commentCount} |`;
+  }).join('\n')}`;
 
   // Convert to IST for timestamp
   const now = new Date();

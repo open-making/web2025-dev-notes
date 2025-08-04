@@ -8,15 +8,17 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 
 ## Entries
 
-- [Day 1 (Jul 21): The Small Web](https://github.com/open-making/web2025-dev-notes/issues/1) | 15 notes
-- [Day 2 (Jul 22): HTML, CSS, and You](https://github.com/open-making/web2025-dev-notes/issues/3) | 12 notes
-- [Day 3 (Jul 23): Seeing and Searching](https://github.com/open-making/web2025-dev-notes/issues/4) | 16 notes
-- [Day 4 (Jul 24): Typesetting a page](https://github.com/open-making/web2025-dev-notes/issues/5) | 13 notes
-- [Day 6 (Jul 28): Making Grids](https://github.com/open-making/web2025-dev-notes/issues/6) | 10 notes
-- [Day 7 (Jul 29): The Indie Web](https://github.com/open-making/web2025-dev-notes/issues/7) | 16 notes
-- [Day 8 (Jul 30): Visual Hierarchies](https://github.com/open-making/web2025-dev-notes/issues/8) | 12 notes
-- [Day 9 (Jul 31): Thinking in Frameworks](https://github.com/open-making/web2025-dev-notes/issues/9) | 15 notes
-- [Day 11 (Aug 4): [Project Day 1] Here comes the sun](https://github.com/open-making/web2025-dev-notes/issues/11) | 6 notes
+| Day | Title | Notes |
+|-----|-------|-------|
+| Day 1 (Jul 21) | [The Small Web](https://github.com/open-making/web2025-dev-notes/issues/1) | 15 |
+| Day 2 (Jul 22) | [HTML, CSS, and You](https://github.com/open-making/web2025-dev-notes/issues/3) | 12 |
+| Day 3 (Jul 23) | [Seeing and Searching](https://github.com/open-making/web2025-dev-notes/issues/4) | 16 |
+| Day 4 (Jul 24) | [Typesetting a page](https://github.com/open-making/web2025-dev-notes/issues/5) | 13 |
+| Day 6 (Jul 28) | [Making Grids](https://github.com/open-making/web2025-dev-notes/issues/6) | 10 |
+| Day 7 (Jul 29) | [The Indie Web](https://github.com/open-making/web2025-dev-notes/issues/7) | 16 |
+| Day 8 (Jul 30) | [Visual Hierarchies](https://github.com/open-making/web2025-dev-notes/issues/8) | 12 |
+| Day 9 (Jul 31) | [Thinking in Frameworks](https://github.com/open-making/web2025-dev-notes/issues/9) | 15 |
+| Day 11 (Aug 4) | [[Project Day 1] Here comes the sun](https://github.com/open-making/web2025-dev-notes/issues/11) | 6 |
 
 
 ## Distribution of night owls
@@ -53,4 +55,4 @@ Notes are positive, negative, or neutral?
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Aug 4, 2025 at 10:45 PM IST</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Aug 5, 2025 at 04:24 AM IST</span>
