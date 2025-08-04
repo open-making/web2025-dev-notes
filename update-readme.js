@@ -108,7 +108,7 @@ ${entries.map(e => {
   const now = new Date();
   const istOffset = 5.5 * 60 * 60 * 1000; // IST is UTC+5:30
   const istTime = new Date(now.getTime() + istOffset);
-  return `# Web 2025 Dev Notes
+  return `# WEB2025 Dev Notes
 
 This repo documents our learning journey for the [web2025](https://teaching.aman.bh/web2025) course taught at DA-IICT.
 
