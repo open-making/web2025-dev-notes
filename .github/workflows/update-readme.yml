@@ -31,7 +31,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install Python dependencies
-        run: pip install textblob
+        run: pip install -r requirements.txt
 
       - name: Install dependencies
         run: npm install
