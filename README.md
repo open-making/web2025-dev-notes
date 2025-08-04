@@ -18,7 +18,7 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 | Day 7 (Jul 29) | [The Indie Web](https://github.com/open-making/web2025-dev-notes/issues/7) | 16 |
 | Day 8 (Jul 30) | [Visual Hierarchies](https://github.com/open-making/web2025-dev-notes/issues/8) | 12 |
 | Day 9 (Jul 31) | [Thinking in Frameworks](https://github.com/open-making/web2025-dev-notes/issues/9) | 15 |
-| Day 11 (Aug 4) | [[Project Day 1] Here comes the sun](https://github.com/open-making/web2025-dev-notes/issues/11) | 11 |
+| Day 11 (Aug 4) | [[Project Day 1] Here comes the sun](https://github.com/open-making/web2025-dev-notes/issues/11) | 12 |
 
 
 ## Distribution of night owls
@@ -27,11 +27,11 @@ Graphing the time when notes have been added. ⚠️ Some night owls detected. M
 
 ```
 🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░│ 46 (38%)
-🌅 06-11 │▓▓▓▓▓▓░░░░░░░░░░░░░░│ 15 (13%)
+🌅 06-11 │▓▓▓▓▓░░░░░░░░░░░░░░░│ 15 (12%)
 ☀️ 12-17 │▓▓░░░░░░░░░░░░░░░░░░│  5 (4%)
-🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 54 (45%)
+🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 55 (45%)
 ```
-📊 120 total comments • Peak: 18-23
+📊 121 total comments • Peak: 18-23
 
 ## How are we feeling?
 
@@ -44,8 +44,8 @@ Notes are positive, negative, or neutral?
  ━━━━━┛     ┃     ┃           ┃                               
             ┗━━━━━┛           ┃    ┏━━━━━┓                    
                               ┃    ┃     ┃                    
-                              ┃    ┃     ┗━━━━━━━━━━━━━━━━━┓  
-                              ┗━━━━┛                       ┗━ 
+                              ┃    ┃     ┗━━━━━━━━━━━━━━━━━━━ 
+                              ┗━━━━┛                          
 ┬─────┬─────┬─────┬─────┬─────┬────┬─────┬─────┬─────┬─────┬─▶
 1     2     3     4     5     6    7     8     9    10    11  
                               Day                              
@@ -55,4 +55,4 @@ Notes are positive, negative, or neutral?
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Aug 4, 2025 at 11:50 PM IST</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Aug 4, 2025 at 11:58 PM IST</span>
