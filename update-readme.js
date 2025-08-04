@@ -231,7 +231,7 @@ function generateSentimentChart(entries) {
     }
   }
 
-  // Now create sequential plot data (1,2,3,4,5...) so chart draws continuous line
+  // Use raw sentiment data without smoothing to avoid trend exaggeration
   for (let i = 0; i < allSentiments.length; i++) {
     plotData.push([i + 1, allSentiments[i]]);
   }
@@ -255,8 +255,8 @@ function findPreviousDataPoint(sentimentMap, day) {
   return null;
 }
 
-function findNextDataPoint(sentimentMap, day) {
-  for (let d = day + 1; d <= 20; d++) { // Assume max 20 days
+function findNextDataPoint(sentimentMap, day, maxDay) {
+  for (let d = day + 1; d <= maxDay; d++) { // Use maxDay
     if (sentimentMap.has(d)) return d;
   }
   return null;
