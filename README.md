@@ -19,7 +19,7 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 | Day 8 (Jul 30) | [Visual Hierarchies](https://github.com/open-making/web2025-dev-notes/issues/8) | 12 |
 | Day 9 (Jul 31) | [Thinking in Frameworks](https://github.com/open-making/web2025-dev-notes/issues/9) | 15 |
 | Day 11 (Aug 4) | [[Project Day 1] Here comes the sun](https://github.com/open-making/web2025-dev-notes/issues/11) | 13 |
-| Day 12 (Aug 5) | [[Project Day 2] Don't stop me now](https://github.com/open-making/web2025-dev-notes/issues/12) | 4 |
+| Day 12 (Aug 5) | [[Project Day 2] Don't stop me now](https://github.com/open-making/web2025-dev-notes/issues/12) | 5 |
 
 
 ## Distribution of night owls
@@ -27,12 +27,12 @@ This repo documents our learning journey for the [web2025](https://teaching.aman
 Graphing the time when notes have been added. ⚠️ Some night owls detected. More sleep please!
 
 ```
-🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░│ 46 (37%)
+🌙 00-05 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░│ 46 (36%)
 🌅 06-11 │▓▓▓▓▓░░░░░░░░░░░░░░░│ 16 (13%)
 ☀️ 12-17 │▓▓░░░░░░░░░░░░░░░░░░│  5 (4%)
-🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 59 (47%)
+🌆 18-23 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│ 60 (47%)
 ```
-📊 126 total comments • Peak: 18-23
+📊 127 total comments • Peak: 18-23
 
 ## How are we feeling?
 
@@ -56,4 +56,4 @@ Notes are positive, negative, or neutral?
 
 ---
 
-<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Aug 5, 2025 at 11:34 PM IST</span>
+<span style="font-size: 12px;">This README is automatically updated when new comments are added to day-wise journal entries. It was updated on Aug 5, 2025 at 11:59 PM IST</span>
